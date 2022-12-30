@@ -74,10 +74,6 @@
     margin-bottom: 1.2rem;   
 }
 
-.signUpScreen__input{
-    padding: 0.6px;
-    margin: 1.4rem;
-}
 
 .signForm{
     height: 30px;
@@ -87,15 +83,6 @@
     align-items: center;
 }
 
-.signupInput{
-    padding: 10px;
-    outline-width: 0;
-    height: 50px;
-    width: 30vw;
-    border: none;
-    outline: none;
-    max-width: 600px;
-}
 
 .signUpScreen__getStarted{
     padding: 16px 20px;

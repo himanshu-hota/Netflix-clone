@@ -18,6 +18,7 @@ import Logout from './components/Logout/Logout';
 import ProfileScreen from './components/Profile/ProfileScreen';
 import { ProtectedRoute } from './components/ProtectedLayout/ProtectedLayout';
 
+
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />} >
     <Route index element={<SignUp />}  />
@@ -41,8 +42,6 @@ function App() {
           email:user.email,
         }));
         // const uid = user.uid;
-        
-
         // ...
       } else {
         // User is signed out
@@ -51,7 +50,7 @@ function App() {
       }
     });
 
-
+  
     return () => {
       unsubscribe();
     }
@@ -62,7 +61,7 @@ function App() {
 
   return (
       <React.Fragment>
-        <RouterProvider router={router} />
+       <RouterProvider router={router} />
       </React.Fragment>
     )
 

@@ -1,0 +1,19 @@
+.errorPage{
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.errorPage h1{
+    font-size: 4rem;
+}
+
+.errorPage a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 2rem;
+}

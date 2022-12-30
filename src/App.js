@@ -1,58 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React,{useEffect} from 'react';
+import Homescreen from './components/Homescreen/Homescreen';
+
 import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements
+} from "react-router-dom";
+import RootLayout from './Pages/RootLayout';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+import SignUp from './components/SIgnUp/SIgnUp';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from 'react-redux/es/exports';
+import { login,logout } from './features/userSlice'; 
+import Logout from './components/Logout/Logout';
+import ProfileScreen from './components/Profile/ProfileScreen';
+import { ProtectedRoute } from './components/ProtectedLayout/ProtectedLayout';
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />} >
+    <Route index element={<SignUp />}  />
+    <Route path='homepage' element={<ProtectedRoute> <Homescreen /> </ProtectedRoute>} />
+    <Route path='profile' element={<ProtectedRoute> <ProfileScreen /> </ProtectedRoute>} />
+    <Route path='logout' element={<ProtectedRoute> <Logout /> </ProtectedRoute>} />
+    <Route path='*' element={<ProtectedRoute> <ProfileScreen /> </ProtectedRoute>} />
+   
+  </Route>
+));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const auth = getAuth();
+   const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(login({
+          uid:user.uid,
+          email:user.email,
+        }));
+        // const uid = user.uid;
+        
+
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        dispatch(logout());
+      }
+    });
+
+
+    return () => {
+      unsubscribe();
+    }
+  
+    
+  }, [dispatch])
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+      <React.Fragment>
+        <RouterProvider router={router} />
+      </React.Fragment>
+    )
+
 }
 
 export default App;

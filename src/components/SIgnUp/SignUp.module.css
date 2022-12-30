@@ -1,0 +1,109 @@
+.signUpScreen{
+    height: 100vh;
+    position: relative;
+    background: url('http://authors.appadvice.com/wp-content/appadvice-v2-media/2016/11/Netflix-background_860c8ece6b34fb4f43af02255ca8f225.jpg') center no-repeat;
+    background-size: cover;
+    /* z-index: 10; */
+    
+}
+
+.signUpScreen__logo{
+    position: fixed;
+    left: 0;
+    top: 0.5rem;
+    width: 5rem;
+    padding-left: 1.2rem;
+    cursor: pointer;
+}
+
+.signUpScreen__button{
+    position: fixed;
+    right: 0.5rem;
+    top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    color: #fff;
+    background-color: #e50914;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.signUpScreen__gradient{
+    width: 100%;
+    /* z-index: 1; */
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+      background: -webkit-linear-gradient(top, 
+                rgba(0,0,0,0.8) 0%, 
+                rgba(0,0,0,0.5) 60%,
+                rgba(0,0,0,0.8) 100%
+    );
+}
+
+.signUpScreen__body{
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    padding: 1.2rem;
+    margin: auto;
+    /* width: 100%; */
+    text-align: center;
+    left: 0; 
+    right: 0;
+}
+
+.signUpScreen__body h1{
+     font-size: 2.125rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;   
+}
+
+.signUpScreen__body h2{
+     font-size: 1rem;
+     font-weight: 600;
+    margin-bottom: 1.2rem;  
+
+}
+
+.signUpScreen__body h3{
+     font-size: 0.8rem;
+     font-weight: 400;
+    margin-bottom: 1.2rem;   
+}
+
+.signUpScreen__input{
+    padding: 0.6px;
+    margin: 1.4rem;
+}
+
+.signForm{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+.signupInput{
+    padding: 10px;
+    outline-width: 0;
+    height: 50px;
+    width: 30vw;
+    border: none;
+    outline: none;
+    max-width: 600px;
+}
+
+.signUpScreen__getStarted{
+    padding: 16px 20px;
+    border: none;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}

@@ -1,0 +1,121 @@
+.row {
+  color: white;
+  /* padding-left: 1.2rem; */
+  background-color:#0d0d0d;
+  width: 100%;
+}
+
+.row__posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 1.2rem;
+  scrollbar-width: auto;
+  scrollbar-color: #201c22 #0d0d0d;
+}
+
+.row__posters::-webkit-scrollbar {
+  width: none;
+}
+
+/* Chrome, Edge, and Safari */
+.row__posters::-webkit-scrollbar {
+  height: 10px;
+}
+
+.row__posters::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+.row__posters::-webkit-scrollbar-thumb {
+  background-color: #110f12;
+  border-radius: 5px;
+  border: 1px solid #322c2c;
+}
+
+.row__poster {
+  max-height: 100px;
+  margin-right: 10px;
+  cursor: pointer;
+  width:100%;
+  object-fit: contain;
+  transition: transform 450ms;
+}
+
+.row__poster:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+.row__posterLarge{
+  max-height: 250px;
+}
+
+.row__posterLarge:hover{
+  transform: scale(1.09);
+  opacity: 1;
+}
+
+.loadingSpinner{
+  text-align: center;
+  /* font-size: 5rem; */
+}
+
+/* Spinner */
+.lds-ellipsis {
+  display: block;
+  position: relative;
+  width: 80px;
+  /* margin: auto; */
+  height: 80px;
+  text-align: center;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}

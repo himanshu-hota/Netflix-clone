@@ -1,0 +1,55 @@
+.signInScreen {
+  max-width: 300px;
+  padding: 40px 20px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+.signInScreen form {
+  width: 100%;
+}
+
+
+.signInScreen form input {
+  padding: 10px 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.signInScreen form button {
+  padding: 10px 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e50914;
+  color: white;
+  margin-top: 10px;
+}
+
+.signInScreen h4{
+    font-weight: 400;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    color: gray;
+}
+
+.signInScreen h4 span{
+    font-weight: 500;
+    color: white;
+}
+
+.signInScreen h4 span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+

@@ -5,14 +5,14 @@ import { useSelector } from 'react-redux';
 import { selectUser} from '../../features/userSlice'; 
 import { logoutUser } from '../../firebase';
 import PlansScreen from '../PlansScreen/PlansScreen';
-import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 
 const ProfileScreen = () => {
-  const navigate = useNavigate();
+  
     const user = useSelector(selectUser);
     const logoutHandler = () => {
         logoutUser();
-        navigate('/logout');
+      toast.success("Logged Out Successfully!");
     }
 
   return (

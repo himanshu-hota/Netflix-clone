@@ -8,16 +8,13 @@ import { Navigate } from "react-router-dom";
 
 const SignUp = () => {
 
-    const [signedIn, setSignedIn] = useState(!false);
+    const [signedIn, setSignedIn] = useState(false);
 
     const user = useSelector(selectUser);
-    
+
     if (user) {
         return <Navigate to="/homepage" />;
     }
-
-    
-
 
     return (
         <React.Fragment>
@@ -37,10 +34,8 @@ const SignUp = () => {
                                 <h2>Watch anywhere , Cancel any time</h2>
                                 <h3>Ready to watch? Enter your email to create or restart your membership</h3>
                                 <div className={classes.signUpScreen__input}>
-                                <form className={classes.signupForm}>
-                                    <input type="email" placeholder='Enter your email' className={classes.signupInput} />
-                                        <button className={classes.signUpScreen__getStarted} onClick={() => setSignedIn(true)}>Get Started</button>
-                                    </form>
+                                    <button className={classes.signUpScreen__getStarted} onClick={() => setSignedIn(true)}>Get Started</button>
+
                                 </div>
                             </>)
                         }

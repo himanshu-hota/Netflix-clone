@@ -53,3 +53,8 @@
     cursor: pointer;
 }
 
+.validator{
+  font-size: 0.8rem;
+  margin: 5px 0;
+  color: gray;
+}

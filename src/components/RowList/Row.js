@@ -14,9 +14,15 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const request = await axios.get(fetchUrl);
-      setMovie(request.data.results);
-      return request;
+      try {
+        const request = await axios.get(fetchUrl);
+        setMovie(request.data.results);
+        
+        return request;  
+      } catch (error) {
+        throw new Error('Error occured!');
+      }
+      
     }
 
     fetchData();
@@ -35,8 +41,8 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
     {
 
       memoizedValue.map(movie => (
-        ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) &&
-        (<img src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} key={movie.id} className={imageCLass} alt={movie.id} />)
+        ((isLargeRow && movie?.poster_path) || (!isLargeRow && movie?.backdrop_path)) && movie.id &&
+        ( <img src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} id={movie.id} key={movie.id} className={imageCLass} alt='Movie poster' />)
       ))
     }
   </div>;
@@ -49,12 +55,6 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 
       {!isLoading && content}
     </div>)
-}
-// console.log('ere');
-export const loader = async ( ) => {
-  const request = await axios.get(URL);
-  return request.data.results;
-  
 }
 
 export default Row;

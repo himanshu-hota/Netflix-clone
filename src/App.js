@@ -14,19 +14,20 @@ import SignUp from './components/SIgnUp/SIgnUp';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux/es/exports';
 import { login,logout } from './features/userSlice'; 
-import Logout from './components/Logout/Logout';
 import ProfileScreen from './components/Profile/ProfileScreen';
 import { ProtectedRoute } from './components/ProtectedLayout/ProtectedLayout';
-
+import Movie,{loader as MovieLoader} from './components/Movie/Movie';
+import MovieerrorPage from './components/ErrorPage/MovieError';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />} >
     <Route index element={<SignUp />}  />
-    <Route path='homepage' element={<ProtectedRoute> <Homescreen /> </ProtectedRoute>} />
+    <Route path='homepage' element={<ProtectedRoute> <Homescreen /> </ProtectedRoute>}  />
     <Route path='profile' element={<ProtectedRoute> <ProfileScreen /> </ProtectedRoute>} />
-    <Route path='logout' element={<ProtectedRoute> <Logout /> </ProtectedRoute>} />
-    <Route path='*' element={<ProtectedRoute> <ProfileScreen /> </ProtectedRoute>} />
-   
+    <Route path='movie/:id' element={<Movie />} loader={MovieLoader} errorElement={<MovieerrorPage />} />
+    <Route path='*' element={<ErrorPage />} />
   </Route>
 ));
 
@@ -62,6 +63,7 @@ function App() {
   return (
       <React.Fragment>
        <RouterProvider router={router} />
+      <ToastContainer />
       </React.Fragment>
     )
 

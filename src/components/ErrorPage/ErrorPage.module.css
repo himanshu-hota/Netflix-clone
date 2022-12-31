@@ -10,10 +10,28 @@
 
 .errorPage h1{
     font-size: 4rem;
+    margin-bottom: 2rem;
 }
 
 .errorPage a{
     color: aliceblue;
     text-decoration: none;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+.goToEarth{
+    padding: 15px 35px;
+    background-color: #e50914;
+    text-transform: uppercase;
+
+}
+
+@media screen and (max-width:600px) {
+    .errorPage h1{
     font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
 }

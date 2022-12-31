@@ -2,6 +2,7 @@
 import React,{useEffect,useState} from 'react';
 import classes from './PlansScreen.module.css'
 
+
 const products =[
     {
         id:'32err23',
@@ -31,6 +32,7 @@ const PlansScreen = () => {
         const id = e.target.id
         const plan = products.find(product => id===product.id);
         setCurrentPlan(plan);
+        
     }
 
     useEffect(() => {

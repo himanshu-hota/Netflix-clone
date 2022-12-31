@@ -15,10 +15,6 @@ const Banner = () => {
     useEffect(() => {
         const fetchData = async () => {
         const request = await axios.get(requests.fetchNetflixOriginals);
-        if(request.status !== 200)  {
-            // eslint-disable-next-line no-throw-literal
-            throw new Error('Something went wrong!');
-        }
         setMovie(request.data.results[Math.floor(Math.random()*request.data.results.length-1)]);
         }
         fetchData();

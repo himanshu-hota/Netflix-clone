@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useMemo, } from 'react';
+import React, { useState, useEffect, useMemo, } from 'react';
 import classes from './Row.module.css';
 import axios from '../../axios';
 
@@ -9,20 +9,20 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const baseUrl = 'https://image.tmdb.org/t/p/original/';
-  
-  
+
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         const request = await axios.get(fetchUrl);
         setMovie(request.data.results);
-        
-        return request;  
+
+        return request;
       } catch (error) {
         throw new Error('Error occured!');
       }
-      
+
     }
 
     fetchData();
@@ -37,12 +37,12 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 
   const content = <div className={classes.row__posters}>
 
-  
+
     {
 
       memoizedValue.map(movie => (
         ((isLargeRow && movie?.poster_path) || (!isLargeRow && movie?.backdrop_path)) && movie.id &&
-        ( <img src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} id={movie.id} key={movie.id} className={imageCLass} alt='Movie poster' />)
+        (<img src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} id={movie.id} key={movie.id} className={imageCLass} alt='Movie poster' />)
       ))
     }
   </div>;

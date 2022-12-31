@@ -47,14 +47,14 @@ const loginUser =  (email, password) => {
   }).catch(err => {
     const errorCode = err.code;
     if (errorCode === 'auth/wrong-password'){
-      toast.error("Wrong Password!");
+     return toast.error("Wrong Password!");
     }
 
     if (errorCode === 'auth /too-many-requests') {
-      toast.error("Please try again after sometime!");
+     return toast.error("Please try again after sometime!");
     }
 
-      toast.error("Invalid user");
+     return toast.error("Invalid user");
     
       
   });
